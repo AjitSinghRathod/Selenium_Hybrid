@@ -17,7 +17,7 @@ public class LoginTest extends BaseClass {
 
         // Read test data from Excel
         ExcelUtils excelUtils = new ExcelUtils();
-        String testDataPath = "src\\test\\resources\\test.xlsx";
+        String testDataPath = PropertyReader.getProperty("testDataPath");
         excelUtils.setExcelFile(testDataPath, "test");
         String username = excelUtils.getCellData(1, 1);
         String password = excelUtils.getCellData(1, 2);

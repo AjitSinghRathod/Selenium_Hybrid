@@ -29,7 +29,7 @@ public class ActionMap {
             switch (action) {
                 case "click":
                     System.out.println("Performing click action");
-                    WebElement loginButton = driver.findElement(By.xpath("//*[type='button']"));
+                    WebElement loginButton = driver.findElement(By.xpath("//*[text()='Login']"));
                     if (loginButton.isDisplayed() && loginButton.isEnabled()) {
                      loginButton.click();
                     }
