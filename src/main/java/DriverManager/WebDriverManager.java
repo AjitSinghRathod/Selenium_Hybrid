@@ -12,9 +12,9 @@ import java.util.concurrent.TimeUnit;
 
 public class WebDriverManager {
 
-    private WebDriver driver;
+    public static WebDriver driver;
 
-    public WebDriver getDriver() {
+    public static WebDriver getDriver() {
         // Read the browser type from the configuration
         String browserType = PropertyReader.getProperty("browser").toLowerCase();
         boolean headless = Boolean.parseBoolean(PropertyReader.getProperty("headless"));

@@ -17,9 +17,9 @@ public class LoginPage extends BaseClass {
     ActionMap actionMap = new ActionMap();
     
     // Locators for the login page elements
-    private By usernameLocator = By.xpath("//*[@id='userName']");
-    private By passwordLocator = By.xpath("//*[@id='password']");
-    private By loginButtonLocator = By.xpath("//input[@type='Login']");
+    private By usernameLocator = By.id("username");
+    private By passwordLocator = By.id("password");
+    private By loginButtonLocator = By.id("kc-login");
 
     // Constructor to initialize the WebDriver
     public LoginPage(WebDriver driver) {
@@ -56,20 +56,21 @@ public class LoginPage extends BaseClass {
     // Method to perform login
     public void loginAs(String username, String password) {
        // openBrowser();
-        scrollDown();
-        WebElement element = driver.findElement(By.tagName("h5"));
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
-        scrollDowntoElement("xpath", "//*[text()='Book Store Application']");
-        clickonElement("xpath", "//*[text()='Book Store Application']");
-        scrollDown();
-        waitForElementToBeClickable(loginPage, 30);
-        clickonElement("xpath","//*[@id='login']");
-        scrollDown();
+        //scrollDown();
+       // WebElement element = driver.findElement(By.tagName("h5"));
+       // ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
+        //scrollDowntoElement("id", "username");
+        //clickonElement("id", "password");
+        //scrollDown();
+        //waitForElementToBeClickable(loginPage, 30);
+       // clickonElement("id","kc-login");
+        //scrollDown();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         enterUsername(username);
         scrollDown();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         enterPassword(password);
-       // clickLoginButton();
+        clickLoginButton();
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
 }

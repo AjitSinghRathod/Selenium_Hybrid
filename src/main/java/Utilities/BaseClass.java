@@ -3,6 +3,7 @@ package Utilities;
 import PageObjects.LoginPage;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -149,4 +150,14 @@ public class BaseClass {
         actionMap.performAction("open browser");
 
     }
+    public void selectFromDropdown(WebElement dropdownElement, String value) {
+        Select dropdown = new Select(dropdownElement);
+        dropdown.selectByVisibleText(value);
+    }
+    public void selectFromCustomDropdown(WebElement dropdownElement, String value) {
+        dropdownElement.click();
+        WebElement option = dropdownElement.findElement(By.xpath("//div[contains(text(), '" + value + "')]"));
+        option.click();
+    }
+    
 }
