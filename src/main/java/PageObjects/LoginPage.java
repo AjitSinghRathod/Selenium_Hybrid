@@ -56,18 +56,10 @@ public class LoginPage extends BaseClass {
     // Method to perform login
     public void loginAs(String username, String password) {
        // openBrowser();
-        //scrollDown();
-       // WebElement element = driver.findElement(By.tagName("h5"));
-       // ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
-        //scrollDowntoElement("id", "username");
-        //clickonElement("id", "password");
-        //scrollDown();
-        //waitForElementToBeClickable(loginPage, 30);
-       // clickonElement("id","kc-login");
-        //scrollDown();
+        waitForPageLoad(driver);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         enterUsername(username);
-        scrollDown();
+        scrollDown(0,1000);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         enterPassword(password);
         clickLoginButton();
